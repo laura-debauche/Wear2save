@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="shortcut icon" href="images/2.jpeg">
+	    <meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <link rel="stylesheet" type="text/css" href="css/style.css">
+	    <title>Wear2save Produits</title>
+        
+    </head>
+    <header>
+		<nav>
+			<ul>
+			  <li class="dropdown2">
+				<a href="#" class="dropdown-toggle2">...</a>
+				<ul class="dropdown-menu2">
+				  <li><a class="droptext2" href="index.html">Accueil</a></li>
+				  <li><a class="droptext2" href="./index2.html#">Nous contacter</a></li>
+				  <li><a class="droptext2" href="./produits.html#">Nos produits</a></li>
+          <li><a class="droptext" href="./partenaires.html">Nos partenaires</a></li>
+				  
+				</ul>
+			  </li>
+			
+			</ul>
+		  </nav>
+	</header>
+    <body>
+      <h1>
+        Nos Produits
+      </h1>
+
+        <div id="containers">
+            <div class="product">
+              <img src="images/blouse.jpeg">
+              <h2 class="marque">Knowledge Cotton Apparel</h2>
+              <p>Blouse blanche en coton</p>
+              <p>Prix: 40€</p>
+              <button class="add-to-cart" data-name="Blouse blanche" data-price="40">Ajouter au panier</button>
+            </div>
+            <div class="product">
+              <img src="images/chemise.jpeg">
+              <h2 class="marque">Knowledge Cotton Apparel</h2>
+              <p>Chemise bleu ciel en coton bio</p>
+              <p>Prix: 35€</p>
+              <button class="add-to-cart" data-name="Chemise bleu ciel" data-price="35">Ajouter au panier</button>
+            </div>
+            <div class="product">
+              <img src="images/top.jpeg">
+              <h2 class="marque">Knowledge Cotton Apparel</h2>
+              <p>Top sans manches écru en coton</p>
+              <p>Prix: 10€</p>
+              <button class="add-to-cart" data-name="Top écru" data-price="10">Ajouter au panier</button>            </div>
+              <div class="product">
+              <img src="images/jean.jpeg">
+              <h2 class="marque">Nudie Jeans</h2>
+              <p>Jean mom bleu en coton bio</p>
+              <p>Prix: 80€</p>
+              <button class="add-to-cart" data-name="Jean" data-price="80">Ajouter au panier</button>            </div>
+              <div class="product">
+              <img src="images/veste.jpeg">
+              <h2 class="marque">Nudie Jeans</h2>
+              <p>Veste en jean en coton biologique</p>
+              <p>Prix: 70€</p>
+              <button class="add-to-cart" data-name="Veste en jean" data-price="70">Ajouter au panier</button>            </div>
+              <div class="product">
+              <img src="images/pantalon.jpeg">
+              <h2 class="marque">Nudie Jeans</h2>
+              <p>Pantalon twill droit beige en coton biologique</p>
+              <p>Prix: 100€</p>
+              <button class="add-to-cart" data-name="Pantalon twill" data-price="100">Ajouter au panier</button>            </div>
+              <div class="product">
+              <img src="images/basquet.jpeg">
+              <h2 class="marque">Flamingos Life</h2>
+              <p>Basket vegan recyclé</p>
+              <p>Prix: 80€</p>
+              <button class="add-to-cart" data-name="Basket blanche et bleu" data-price="80">Ajouter au panier</button>            </div>
+              <div class="product">
+              <img src="images/basket.jpeg">
+              <h2 class="marque">Flamingos Life</h2>
+              <p>Baskets vegan</p>
+              <p>Prix: 60€</p>
+              <button class="add-to-cart" data-name="Basket blanche" data-price="60">Ajouter au panier</button>            </div>
+              <div class="product">
+              <img src="images/sport.jpeg">
+              <h2 class="marque">Flamingos Life</h2>
+              <p>Basket en matières recyclés</p>
+              <p>Prix: 60€</p>
+              <button class="add-to-cart" data-name="Basket sport" data-price="60">Ajouter au panier</button>            </div>
+              <div class="product">
+              <img src="images/barcelone.jpeg">
+              <h2 class="marque">The Running Republic</h2>
+              <p>Haut de sport pour homme</p>
+              <p>Prix: 15€</p>
+              <button class="add-to-cart" data-name="Haut de sport pour homme" data-price="15">Ajouter au panier</button>           
+               </div>
+              <div class="product">
+              <img src="images/legging.jpeg">
+              <h2 class="marque">The Running Republic</h2>
+              <p>Legging de sport pour femme</p>
+              <p>Prix: 20€</p>
+              <button class="add-to-cart" data-name="Legging pour femme" data-price="20">Ajouter au panier</button>           
+               </div>
+               <div class="product">
+              <img src="images/hautnoir.jpeg">
+              <h2 class="marque">The Running Republic</h2>
+              <p>Haut de sport pour homme</p>
+              <p>Prix: 15€</p>
+              <button class="add-to-cart" data-name="Haut de sport pour homme" data-price="15">Ajouter au panier</button>            </div>
+
+          </div>
+          <div id="cart">
+            <h2>Panier</h2>
+            <ul id="cart-items">
+            </ul>
+            <p id="cart-total">Total : 0 €</p>
+            <button id="checkout">Payer</button>
+          </div>
+          <script>
+            const addToCartButtons = document.querySelectorAll('.add-to-cart');
+        
+const cartItems = document.querySelector('#cart-items');
+const cartTotal = document.querySelector('#cart-total');
+let cart = [];
+
+addToCartButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    const name = button.dataset.name;
+    const price = button.dataset.price;
+    const item = { name, price, quantity: 1 };
+    const itemInCart = cart.find(item => item.name === name);
+
+    if (itemInCart) {
+      itemInCart.quantity++;
+    } else {
+      cart.push(item);
+    }
+
+    updateCart();
+  });
+});
+
+function updateCart() {
+  cartItems.innerHTML = '';
+
+  cart.forEach(item => {
+    const li = document.createElement('li');
+    li.innerText = `${item.name} - ${item.price} € x ${item.quantity}`;
+    cartItems.appendChild(li);
+  });
+
+  const total = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
+  cartTotal.innerText = `Total : ${total} €`;
+}
+
+const checkoutButton = document.querySelector('#checkout');
+checkoutButton.addEventListener('click', () => {
+  // Rediriger vers la passerelle de paiement PayPal
+});
+
+        </script>
+          
+          
+          
+    </body>
+</html>
